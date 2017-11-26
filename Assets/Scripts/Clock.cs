@@ -14,6 +14,7 @@ namespace SurvivalShooter
         {
             countdownTime -= Time.deltaTime;
 
+            // Minuets and seconds
             int minutes = Mathf.FloorToInt(countdownTime / 60f);
             int seconds = Mathf.FloorToInt(countdownTime - minutes * 60);
 
