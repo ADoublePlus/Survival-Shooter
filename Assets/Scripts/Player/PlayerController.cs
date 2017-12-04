@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SurvivalShooter
 {
@@ -18,6 +19,7 @@ namespace SurvivalShooter
 
         private PlayerMotor motor;
         private ConfigurableJoint joint;
+
 
         // Use this for initialization
         void Start()

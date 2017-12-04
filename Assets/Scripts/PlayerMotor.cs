@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using GGL;
 
 namespace SurvivalShooter
 {
@@ -6,8 +8,10 @@ namespace SurvivalShooter
 
     public class PlayerMotor : MonoBehaviour
     {
-        [SerializeField] private Camera cam;
-        [SerializeField] private float cameraRotationLimit = 85f;
+        [SerializeField]
+        private Camera cam;
+        [SerializeField]
+        private float cameraRotationLimit = 85f;
 
         private Rigidbody rigid;
         private Vector3 velocity = Vector3.zero;
@@ -17,44 +21,46 @@ namespace SurvivalShooter
         private float currentCameraRotationX = 0f;
 
         // Use this for initialization
-        void Start ()
+        void Start()
         {
             rigid = GetComponent<Rigidbody>();
         }
 
+
+
         // Run every physics iteration
-        void FixedUpdate ()
+        void FixedUpdate()
         {
             PerformMovement();
             PerformRotation();
         }
 
         // Gets a movement vector
-        public void Move (Vector3 _velocity)
+        public void Move(Vector3 _velocity)
         {
             velocity = _velocity;
         }
 
         // Gets a rotational vector
-        public void Rotate (Vector3 _rotation)
+        public void Rotate(Vector3 _rotation)
         {
             rotation = _rotation;
         }
 
         // Gets a rotational vector for the camera
-        public void RotateCamera (float _cameraRotationX)
+        public void RotateCamera(float _cameraRotationX)
         {
             cameraRotationX = _cameraRotationX;
         }
 
         // Gets a force vector for the thrusters
-        public void ApplyThruster (Vector3 _thrusterForce)
+        public void ApplyThruster(Vector3 _thrusterForce)
         {
             thrusterForce = _thrusterForce;
         }
 
         // Perform movement based on the velocity variable
-        void PerformMovement ()
+        public void PerformMovement()
         {
             if (velocity != Vector3.zero)
             {
@@ -68,7 +74,7 @@ namespace SurvivalShooter
         }
 
         // Perform rotation
-        void PerformRotation ()
+        void PerformRotation()
         {
             rigid.MoveRotation(rigid.rotation * Quaternion.Euler(rotation));
 

@@ -25,6 +25,11 @@ public abstract class Test : MonoBehaviour
         Debug();
     }
 
+    void FixedUpdate()
+    {
+        FixedSimulate();
+    }
+
     // For GizmosGL to perform debugging
     public virtual void Debug()
     {
@@ -35,6 +40,10 @@ public abstract class Test : MonoBehaviour
     public virtual void Simulate()
     {
        
+    }
+    public virtual void FixedSimulate()
+    {
+
     }
 
     // Perform checks to see whether a test has succeeded or failed
